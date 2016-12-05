@@ -11,9 +11,9 @@ from requests import get
 from StringIO import StringIO
 import matplotlib.pyplot as plt
 from numpy import array
-import scrape
+from lyriccloud import scrape
 
-url = 'http://genius.com/albums/Drake/More-life'
+url = 'http://genius.com/albums/Snoop-dogg/Doggystyle'
 
 cover_url, tracks = scrape.get_tracks(url)
 lyrics = ''
