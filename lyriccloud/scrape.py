@@ -14,8 +14,7 @@ def get_lyrics(url):
     soup = BeautifulSoup(html, 'html.parser')
     lyrics = soup.find('lyrics', class_='lyrics').find('p')
     sections = lyrics.find_all('a')
-    print 'Getting lyrics from', url
-    print
+    print 'Getting lyrics from', url, '\n'
     for section in sections:
         if '[' not in section.text:
             lines += [section.text]
@@ -31,17 +30,11 @@ def get_tracks(url):
     tracks = {}  # song title : url
     html = requests.get(url).text
     soup = BeautifulSoup(html, 'html.parser')
-    print 'Getting album cover!'
     cover_src = soup.find('img', class_='cover_art')['src']
-    print cover_src
-    print 'Getting album tracks!'
-    print
+    print 'Getting album cover\n', cover_src, '\nGetting album tracks!\n'
     for track in soup.find('ul', class_='song_list').find_all('li'):
         t = track.find('a')
         print 'Got url for', t.text.strip().encode('utf-8')
         tracks[t.text] = t['href'].encode('utf-8')
     return (cover_src, tracks)
-
-
-
 

@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from numpy import array
 from lyriccloud import scrape
 
-url = 'http://genius.com/albums/Snoop-dogg/Doggystyle'
+url = 'http://genius.com/albums/Modest-mouse/Good-news-for-people-who-love-bad-news'
 
 cover_url, tracks = scrape.get_tracks(url)
 lyrics = ''
